@@ -7,7 +7,7 @@ User.create = (user) => {
   console.log('User create in model', user)
   const password = bcrypt.hashSync(user.password_digest, 10);
   return db.one(`
-    INSERT INTO users
+    INSERT INTO users 
     (first_name, last_name, email, password_digest)
     VALUES
     ($1, $2, $3, $4) RETURNING *`,
