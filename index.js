@@ -8,7 +8,7 @@ const expressJWT     = require('express-jwt');
 const jwt            = require('jsonwebtoken');
 const cors           = require('cors');
 const PORT           = process.env.PORT || 8000;
-const app     = express();
+const app            = express();
 
 // config cors
 app.use(cors());
@@ -20,7 +20,7 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // config body parser
-app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // config ejs for mock views

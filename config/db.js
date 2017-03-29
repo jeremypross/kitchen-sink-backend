@@ -3,9 +3,9 @@
 const pgp = require('pg-promise')();
 
 const db = pgp({
-  host: 'localhost',
+  database: 'kitchen_sink_db',
   port: 5432,
-  database: 'kitchen_sink_db'
+  host: 'localhost'
 })
 
 module.exports = db;
