@@ -54,7 +54,7 @@ controller.create = (req, res) => {
     .catch(err => console.log('ERROR', err));
 };
 
-controller.login = (req, res) => {
+controller.login  = (req, res) => {
   User
     .findByEmail(req.body.user.email)
     .then((user) => {
@@ -70,6 +70,7 @@ controller.login = (req, res) => {
           }, 'taco cat', { expiresIn: '7d' });
           // respond with token
           res.json({ token });
+          console.log('token in controller.process_login', token);
         } else {
         res.sendStatus(401)
         }
