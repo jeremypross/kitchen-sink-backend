@@ -5,7 +5,8 @@ router.get('/', controller.index);
 
 router.get('/new', controller.new);
 
-// need this to point to /signup route when connecting react front end
+// router.get('/dashboard', controller.authorizeToken);
+
 router.post('/login', controller.login);
 
 router.post('/signup', controller.create);

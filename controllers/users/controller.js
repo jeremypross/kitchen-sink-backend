@@ -12,9 +12,6 @@ controller.index = (req, res) => {
     .catch((err) => console.log('ERROR', err));
 };
 
-controller.new = (req, res) => {
-  res.render('users/new');
-}
 
 controller.authorizeToken = (req, res) => {
   jwt.verify(req.headers.authorization, 'taco cat', (err, decoded) => {

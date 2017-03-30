@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express        = require('express');
 const bodyParser     = require('body-parser');
 const logger         = require('morgan');
@@ -10,8 +11,13 @@ const cors           = require('cors');
 const PORT           = process.env.PORT || 8000;
 const app            = express();
 
+let corsOptions={
+  origin: '*',
+  optionsSuccessStatus: 200 // IE and other browsers don't like 204 statuses
+};
+
 // config cors
-app.use(cors());
+app.use(cors(corsOptions));
 
 // config morgan
 app.use(logger('dev'));
