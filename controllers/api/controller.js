@@ -22,7 +22,7 @@ controller.getRecipes = (req, res) => {
 };
 
 controller.getRecipeInfo = (req, res) => {
-  console.log("query parameter / recipe id", req.params.id)
+  console.log("recipe id:", req.params.id)
   Yummly
     .getRecipeInfo(req.params.id)
     .then(r => r.json())

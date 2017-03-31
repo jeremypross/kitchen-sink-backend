@@ -26,10 +26,6 @@ controller.authorizeToken = (req, res) => {
   });
 }
 
-// controller.new = (req, res) => {
-//   res.render('users/new');
-// }
-
 controller.show = (req, res) => {
   User
     .findById(req.params.id)
@@ -66,6 +62,7 @@ controller.login  = (req, res) => {
             user_id: user.id
           }, 'taco cat', { expiresIn: '7d' });
           // respond with token
+          // need to send user_id with token here
           res.json({ token });
           console.log('token in controller.process_login', token);
         } else {

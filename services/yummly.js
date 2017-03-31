@@ -11,7 +11,7 @@ Yummly.getRecipes = (search) => {
   return fetch(`http://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&q=${search}&requirePictures=true`);
 }
 
-// second fetch GET request to get detailed info on that recipe - passing the recipe id from first GET request as parameter
+// second fetch GET request to get detailed info on specific recipe - passing the recipe id from first GET request as parameter
 Yummly.getRecipeInfo = (recipe) => {
   console.log("Yummly service, recipe id:", recipe);
   return fetch(`http://api.yummly.com/v1/api/recipe/${recipe}?_app_id=${APP_ID}&_app_key=${APP_KEY}`);
