@@ -3,7 +3,7 @@ const controller = require('./controller');
 
 router.get('/', controller.index);
 
-router.get('/new', controller.new);
+// router.get('/new', controller.new);
 
 // router.get('/dashboard', controller.authorizeToken);
 

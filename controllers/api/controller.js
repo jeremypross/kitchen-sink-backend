@@ -5,7 +5,7 @@ let controller = {};
 controller.getRecipes = (req, res) => {
   console.log('query parameter in api controller', req.params.search);
   Yummly
-    // pass search / query parameter to getRecipes fetch call
+    // pass search parameter to getRecipes fetch call
     .getRecipes(req.params.search)
     // parse response to json
     .then(r => r.json())
@@ -20,5 +20,21 @@ controller.getRecipes = (req, res) => {
       .json(err);
     });
 };
+
+controller.getRecipeInfo = (req, res) => {
+  console.log("query parameter / recipe id", req.params.id)
+  Yummly
+    .getRecipeInfo(req.params.id)
+    .then(r => r.json())
+    .then((data) => {
+      res.json(data)
+      console.log("getRecipeInfo data:", data);
+    })
+    .catch((err) => {
+      res
+      .status(400)
+      .json(err);
+    })
+}
 
 module.exports = controller;

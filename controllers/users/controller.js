@@ -21,14 +21,14 @@ controller.authorizeToken = (req, res) => {
         .status(401)
         .json({ error: err.message });
     } else {
-      // pass favorite recipes to dashboard page here
+      // pass saved recipes to dashboard page here
     }
   });
 }
 
-controller.new = (req, res) => {
-  res.render('users/new');
-}
+// controller.new = (req, res) => {
+//   res.render('users/new');
+// }
 
 controller.show = (req, res) => {
   User
