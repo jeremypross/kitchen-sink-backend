@@ -3,7 +3,7 @@ const controller = require('./controller');
 
 router.get('/', controller.index);
 
-// router.get('/dashboard', controller.authorizeToken);
+router.get('/dashboard', controller.authorizeToken);
 
 router.post('/login', controller.login);
 

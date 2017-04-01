@@ -21,7 +21,18 @@ controller.authorizeToken = (req, res) => {
         .status(401)
         .json({ error: err.message });
     } else {
-      // pass saved recipes to dashboard page here
+      Recipe
+        .findByUserEmail(decoded.email)
+        .then((data) => {
+          res.json({
+            data: data,
+            user_id: decoded.user_id
+          });
+        })
+        .catch((err) => {
+          console.log('ERROR', err);
+        })
+        console.log('JSON DECODED', decoded);
     }
   });
 }
@@ -64,6 +75,7 @@ controller.login  = (req, res) => {
           // respond with token
           // need to send user_id with token here
           res.json({ token });
+          console.log(user.id)
           console.log('token in controller.process_login', token);
         } else {
         res.sendStatus(401)
