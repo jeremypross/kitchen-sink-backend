@@ -7,7 +7,7 @@ Recipe.create = (recipe) => {
     INSERT INTO recipes
     (title, ingredients, image_url, cook_time, source_url, user_id)
     VALUES
-    ($1, $2, $3, $4, $5)`,
+    ($1, $2, $3, $4, $5, $6)`,
     [
       recipe.title,
       recipe.ingredients,

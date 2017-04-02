@@ -16,7 +16,7 @@ controller.index = (req, res) => {
 controller.authorizeToken = (req, res) => {
   jwt.verify(req.headers.authorization, 'taco cat', (err, decoded) => {
     if (err) {
-      console.log('error in controller.authorizeToken');
+      console.log(err);
       res
         .status(401)
         .json({ error: err.message });
@@ -53,12 +53,12 @@ controller.create = (req, res) => {
     .then((data) => {
       console.log('data in controller', data);
       res.status(201)
-      .json({ user: data })
+      res.json({ user: data })
     })
     .catch(err => console.log('ERROR', err));
 };
 
-controller.login  = (req, res) => {
+controller.login = (req, res) => {
   User
     .findByEmail(req.body.user.email)
     .then((user) => {
@@ -72,16 +72,19 @@ controller.login  = (req, res) => {
             email: user.email,
             user_id: user.id
           }, 'taco cat', { expiresIn: '7d' });
-          // respond with token
-          // need to send user_id with token here
-          res.json({ token });
-          console.log(user.id)
-          console.log('token in controller.process_login', token);
+            // respond with token
+            res.json({ token: {
+                token: token,
+                user_id: user.id
+              }
+            });
+            console.log('User ID:', user.id)
+            console.log('token in controller.process_login', token);
         } else {
-        res.sendStatus(401)
+          res.sendStatus(401)
         }
       } else {
-        res.status(401)
+        res.status(404)
         .json({ error: 'No user found' });
       }
     });
