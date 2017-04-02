@@ -21,21 +21,29 @@ Recipe.create = (recipe) => {
 Recipe.findByUserEmail = (email) => {
   return db.query(
     `SELECT
-      recipe.id,
-      recipe.title,
-      recipe.ingredients,
-      recipe.image_url,
-      recipe.cook_time,
-      recipe.source_url,
+      recipes.id,
+      recipes.title,
+      recipes.ingredients,
+      recipes.image_url,
+      recipes.cook_time,
+      recipes.source_url,
+      recipes.user_id,
       users.first_name,
       users.last_name,
-      users.email,
-      user_id
+      users.email
     FROM recipes
     LEFT OUTER JOIN users
     ON users.id = recipes.user_id
     WHERE email = $1`,
     [email]
+  );
+}
+
+Recipe.delete = (recipeId, userId) => {
+  return db.none(
+    `DELETE FROM recipes
+     WHERE id = $1 AND user_id = $2`,
+     [recipeId, userId]
   );
 }
 

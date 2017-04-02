@@ -3,4 +3,6 @@ const controller = require('./controller');
 
 router.post('/', controller.create);
 
+router.delete('/:id/:user_id', controller.destroy);
+
 module.exports = router;

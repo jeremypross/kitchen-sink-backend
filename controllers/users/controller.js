@@ -4,6 +4,7 @@ const jwt    = require('jsonwebtoken');
 const controller = {};
 
 const User = require('../../models/user');
+const Recipe = require('../../models/recipe');
 
 controller.index = (req, res) => {
   User
@@ -16,14 +17,15 @@ controller.index = (req, res) => {
 controller.authorizeToken = (req, res) => {
   jwt.verify(req.headers.authorization, 'taco cat', (err, decoded) => {
     if (err) {
-      console.log(err);
       res
         .status(401)
         .json({ error: err.message });
+        console.log("HELLLLOOOOO");
     } else {
       Recipe
         .findByUserEmail(decoded.email)
         .then((data) => {
+          console.log("DASHBOARD DATA:", data);
           res.json({
             data: data,
             user_id: decoded.user_id
@@ -72,7 +74,7 @@ controller.login = (req, res) => {
             email: user.email,
             user_id: user.id
           }, 'taco cat', { expiresIn: '7d' });
-            // respond with token
+            // respond with token and user ID
             res.json({ token: {
                 token: token,
                 user_id: user.id

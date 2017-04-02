@@ -13,4 +13,16 @@ controller.create = (req, res) => {
     });
 }
 
+controller.destroy = (req, res) => {
+  Recipe
+    .delete(req.params.id, req.params.user_id)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+
 module.exports = controller;

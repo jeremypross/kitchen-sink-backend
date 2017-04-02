@@ -2,6 +2,7 @@ const Yummly = require('../../services/yummly.js');
 
 let controller = {};
 
+// first fetch call in services/yummly.js - search input bar
 controller.getRecipes = (req, res) => {
   console.log('query parameter in api controller', req.params.search);
   Yummly
@@ -21,6 +22,7 @@ controller.getRecipes = (req, res) => {
     });
 };
 
+// second fetch call - more info button 
 controller.getRecipeInfo = (req, res) => {
   console.log("recipe id:", req.params.id)
   Yummly
