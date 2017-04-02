@@ -5,14 +5,15 @@ const Recipe = {};
 Recipe.create = (recipe) => {
   return db.none(`
     INSERT INTO recipes
-    (title, ingredients, image_url, cook_time, source_url, user_id)
+    (title, ingredients, image_url, cook_time, source, source_url, user_id)
     VALUES
-    ($1, $2, $3, $4, $5, $6)`,
+    ($1, $2, $3, $4, $5, $6, $7)`,
     [
       recipe.title,
       recipe.ingredients,
       recipe.image_url,
       recipe.cook_time,
+      recipe.source,
       recipe.source_url,
       recipe.user_id]
   );
@@ -26,6 +27,7 @@ Recipe.findByUserEmail = (email) => {
       recipes.ingredients,
       recipes.image_url,
       recipes.cook_time,
+      recipes.source,
       recipes.source_url,
       recipes.user_id,
       users.first_name,

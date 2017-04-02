@@ -20,7 +20,7 @@ controller.destroy = (req, res) => {
       res.sendStatus(200);
     })
     .catch((err) => {
-      console.log('ERROR', err);
+      console.log('DELETE ERROR *******', err);
     })
 }
 

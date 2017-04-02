@@ -18,6 +18,7 @@ CREATE TABLE recipes (
   ingredients TEXT,
   image_url VARCHAR(255),
   cook_time TEXT,
+  source VARCHAR(255),
   source_url VARCHAR(255),
   user_id INTEGER REFERENCES users(id)
 );
