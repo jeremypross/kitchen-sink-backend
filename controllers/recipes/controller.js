@@ -1,6 +1,18 @@
 const Recipe = require('../../models/recipe');
+const Comment = require('../../models/comment');
 
 const controller = {};
+
+controller.index = (req, res) => {
+  Recipe
+    .findAll()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
 
 controller.create = (req, res) => {
   Recipe
@@ -11,6 +23,18 @@ controller.create = (req, res) => {
     .catch((err) => {
       console.log('ERROR', err);
     });
+}
+
+controller.update = (req, res) => {
+  Recipe
+    .update(req.body.comment, req.params.id, req.params.user_id)
+    .then((data) => {
+      console.log('COMMENT / UPDATE FIRING');
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
 }
 
 controller.destroy = (req, res) => {

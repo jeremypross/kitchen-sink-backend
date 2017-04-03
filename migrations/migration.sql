@@ -20,6 +20,7 @@ CREATE TABLE recipes (
   cook_time TEXT,
   source VARCHAR(255),
   source_url VARCHAR(255),
+  comment TEXT,
   user_id INTEGER REFERENCES users(id)
 );
 

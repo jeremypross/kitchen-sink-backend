@@ -5,9 +5,16 @@ const Recipe = {};
 Recipe.create = (recipe) => {
   return db.none(`
     INSERT INTO recipes
-    (title, ingredients, image_url, cook_time, source, source_url, user_id)
+    ( title,
+      ingredients,
+      image_url,
+      cook_time,
+      source,
+      source_url,
+      comment,
+      user_id)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7)`,
+    ($1, $2, $3, $4, $5, $6, $7, $8)`,
     [
       recipe.title,
       recipe.ingredients,
@@ -15,6 +22,7 @@ Recipe.create = (recipe) => {
       recipe.cook_time,
       recipe.source,
       recipe.source_url,
+      null,
       recipe.user_id]
   );
 }
@@ -39,6 +47,21 @@ Recipe.findByUserEmail = (email) => {
     WHERE email = $1`,
     [email]
   );
+}
+
+Recipe.findAll = () => {
+  return db.query(
+    `SELECT * FROM recipes`
+  )
+}
+
+Recipe.update = (comment, user_id, recipe_id) => {
+  return db.none(`
+    UPDATE recipes
+    SET comment = $1
+    WHERE id = $2`,
+    [comment, recipe_id]
+  )
 }
 
 Recipe.delete = (recipeId, userId) => {

@@ -39,27 +39,6 @@ controller.authorizeToken = (req, res) => {
   });
 }
 
-controller.show = (req, res) => {
-  User
-    .findById(req.params.id)
-    .then((data) => {
-      res.render('users/show', { users: data });
-    })
-    .catch((err) => console.log('ERROR', err));
-}
-
-controller.create = (req, res) => {
-  console.log('req body in controller.create', req.body);
-  User
-    .create(req.body.user)
-    .then((data) => {
-      console.log('data in controller', data);
-      res.status(201)
-      res.json({ user: data })
-    })
-    .catch(err => console.log('ERROR', err));
-};
-
 controller.login = (req, res) => {
   User
     .findByEmail(req.body.user.email)
@@ -77,7 +56,8 @@ controller.login = (req, res) => {
             // respond with token and user ID
             res.json({ token: {
                 token: token,
-                user_id: user.id
+                user_id: user.id,
+                loggedIn: true
               }
             });
             console.log('User ID:', user.id)
@@ -91,6 +71,18 @@ controller.login = (req, res) => {
       }
     });
 }
+
+controller.create = (req, res) => {
+  console.log('req body in controller.create', req.body);
+  User
+    .create(req.body.user)
+    .then((data) => {
+      console.log('data in controller', data);
+      res.status(201)
+      res.json({ user: data })
+    })
+    .catch(err => console.log('ERROR', err));
+};
 
 
 module.exports = controller;
