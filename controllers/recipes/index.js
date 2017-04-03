@@ -5,7 +5,7 @@ router.get('/', controller.index);
 
 router.post('/', controller.create);
 
-router.post('/:id/:user_id', controller.update);
+router.put('/:id/:user_id', controller.update);
 
 router.delete('/:id/:user_id', controller.destroy);
 

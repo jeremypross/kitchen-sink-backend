@@ -22,7 +22,7 @@ Recipe.create = (recipe) => {
       recipe.cook_time,
       recipe.source,
       recipe.source_url,
-      null,
+      recipe.comment,
       recipe.user_id]
   );
 }
@@ -37,6 +37,7 @@ Recipe.findByUserEmail = (email) => {
       recipes.cook_time,
       recipes.source,
       recipes.source_url,
+      recipes.comment,
       recipes.user_id,
       users.first_name,
       users.last_name,
@@ -60,7 +61,7 @@ Recipe.update = (comment, user_id, recipe_id) => {
     UPDATE recipes
     SET comment = $1
     WHERE id = $2`,
-    [comment, recipe_id]
+    [comment, user_id, recipe_id]
   )
 }
 

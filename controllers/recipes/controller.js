@@ -1,5 +1,4 @@
 const Recipe = require('../../models/recipe');
-const Comment = require('../../models/comment');
 
 const controller = {};
 
@@ -29,6 +28,7 @@ controller.update = (req, res) => {
   Recipe
     .update(req.body.comment, req.params.id, req.params.user_id)
     .then((data) => {
+      console.log("REQ.BODY.COMMENT", req.body.comment);
       console.log('COMMENT / UPDATE FIRING');
       res.sendStatus(200);
     })
