@@ -4,7 +4,7 @@ let controller = {};
 
 // first fetch call in services/yummly.js - search input bar
 controller.getRecipes = (req, res) => {
-  console.log('query parameter in api controller', req.params.search);
+  // console.log('query parameter in api controller', req.params.search);
   Yummly
     // pass search parameter to getRecipes fetch call
     .getRecipes(req.params.search)
@@ -13,7 +13,7 @@ controller.getRecipes = (req, res) => {
     // pass data into recipes object - to render in react
     .then((data) => {
       res.json(data)
-      console.log("controller.getRecipes api data", data);
+      // console.log("controller.getRecipes api data", data);
     })
     .catch((err) => {
       res
@@ -24,13 +24,13 @@ controller.getRecipes = (req, res) => {
 
 // second fetch call - more info button
 controller.getRecipeInfo = (req, res) => {
-  console.log("recipe id:", req.params.id)
+  // console.log("recipe id:", req.params.id)
   Yummly
     .getRecipeInfo(req.params.id)
     .then(r => r.json())
     .then((data) => {
       res.json(data)
-      console.log("getRecipeInfo data:", data);
+      // console.log("getRecipeInfo data:", data);
     })
     .catch((err) => {
       res

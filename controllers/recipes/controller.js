@@ -28,8 +28,8 @@ controller.update = (req, res) => {
   Recipe
     .update(req.body.comment, req.params.id, req.params.user_id)
     .then((data) => {
-      console.log("REQ.BODY.COMMENT", req.body.comment);
-      console.log('COMMENT / UPDATE FIRING');
+      // console.log("REQ.BODY.COMMENT", req.body.comment);
+      // console.log('COMMENT / UPDATE FIRING');
       res.sendStatus(200);
     })
     .catch((err) => {
@@ -44,7 +44,7 @@ controller.destroy = (req, res) => {
       res.sendStatus(200);
     })
     .catch((err) => {
-      console.log('DELETE ERROR *******', err);
+      console.log('ERROR', err);
     })
 }
 

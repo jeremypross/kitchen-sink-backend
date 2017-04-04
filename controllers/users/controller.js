@@ -20,12 +20,12 @@ controller.authorizeToken = (req, res) => {
       res
         .status(401)
         .json({ error: err.message });
-        console.log("HELLLLOOOOO");
+        // console.log("HELLLLOOOOO");
     } else {
       Recipe
         .findByUserEmail(decoded.email)
         .then((data) => {
-          console.log("DASHBOARD DATA:", data);
+          // console.log("DASHBOARD DATA:", data);
           res.json({
             data: data,
             user_id: decoded.user_id
@@ -34,7 +34,7 @@ controller.authorizeToken = (req, res) => {
         .catch((err) => {
           console.log('ERROR', err);
         })
-        console.log('JSON DECODED', decoded);
+        // console.log('JSON DECODED', decoded);
     }
   });
 }
@@ -60,8 +60,8 @@ controller.login = (req, res) => {
                 loggedIn: true
               }
             });
-            console.log('User ID:', user.id)
-            console.log('token in controller.process_login', token);
+            // console.log('User ID:', user.id)
+            // console.log('token in controller.process_login', token);
         } else {
           res.sendStatus(401)
         }
@@ -73,11 +73,11 @@ controller.login = (req, res) => {
 }
 
 controller.create = (req, res) => {
-  console.log('req body in controller.create', req.body);
+  // console.log('req body in controller.create', req.body);
   User
     .create(req.body.user)
     .then((data) => {
-      console.log('data in controller', data);
+      // console.log('data in controller', data);
       res.status(201)
       res.json({ user: data })
     })
