@@ -22,7 +22,7 @@ Recipe.create = (recipe) => {
       recipe.cook_time,
       recipe.source,
       recipe.source_url,
-      recipe.comment,
+      null,
       recipe.user_id]
   );
 }

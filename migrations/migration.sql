@@ -24,12 +24,5 @@ CREATE TABLE recipes (
   user_id INTEGER REFERENCES users(id)
 );
 
-CREATE TABLE comments (
-  id BIGSERIAL PRIMARY KEY,
-  comment TEXT,
-  rating INTEGER,
-  recipe_id INTEGER REFERENCES recipes(id),
-  user_id INTEGER REFERENCES users(id)
-);
 
 COMMIT;

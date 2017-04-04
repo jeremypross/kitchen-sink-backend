@@ -22,7 +22,7 @@ controller.getRecipes = (req, res) => {
     });
 };
 
-// second fetch call - more info button 
+// second fetch call - more info button
 controller.getRecipeInfo = (req, res) => {
   console.log("recipe id:", req.params.id)
   Yummly
