@@ -26,10 +26,8 @@ My approach to this app was to provide a solution the cooking and meal planning.
 * React JS - Front End
 
 ## Yummly API
-Kitchen Sink was created through the use of the Yummly API, which is one of the most robust food APIs with over 2 million recipes aggregated from various food blogs and recipe websites.  
+Kitchen Sink was created through the use of the [Yummly API](https://developer.yummly.com/), which is one of the most robust food APIs with over 2 million recipes aggregated from various food blogs and recipe websites.  
  - Note: in order to successfully use this application you will need to obtain an API ID and key from Yummly. This app was built on a generously provided academic plan.
-
-[Yummly API](https://developer.yummly.com/)
 
 ## Server-Side Dependencies:
 * Users can NPM install upon downloading the app, which will implement the following dependencies:
