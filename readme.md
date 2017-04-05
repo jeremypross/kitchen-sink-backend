@@ -3,8 +3,6 @@
 ## Approach:
 My approach to this app was to provide a solution the cooking and meal planning.  The inspiration came from when you have limited ingredients and need inspiration for what to cook.  Kitchen Sink allows users to input ingredients they'd like to cook with and return search results of recipes which include those ingredients.
 
-[Front End - Built with React JS](https://github.com/jeremypross/kitchen-sink-frontend)
-
 ## ERD:
 ![ERD](/public/img/erd.png)
 
@@ -29,7 +27,7 @@ My approach to this app was to provide a solution the cooking and meal planning.
 
 ## Yummly API
 Kitchen Sink was created through the use of the Yummly API, which is one of the most robust food APIs with over 2 million recipes aggregated from various food blogs and recipe websites.  
- - Note: in order to successfully use this application you will need to obtain an API ID and key from Yummly. This app was built on a generous academic plan provided by Yummly.
+ - Note: in order to successfully use this application you will need to obtain an API ID and key from Yummly. This app was built on a generously provided academic plan.
 
 [Yummly API](https://developer.yummly.com/)
 
@@ -49,5 +47,5 @@ Kitchen Sink was created through the use of the Yummly API, which is one of the 
   - path (0.12.7)
   - pg-promise (5.6.4)
 
-## Unsolved Issues
-  * Changing nav upon
+## Link to Front End:
+[Front End - Built with React JS](https://github.com/jeremypross/kitchen-sink-frontend)
